@@ -7,7 +7,7 @@ export default class FoodBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 1,
+      value: 0,
     };
   }
   inputHandle = (event) => {
@@ -17,8 +17,11 @@ export default class FoodBox extends Component {
     this.setState({value: this.state.value + 1})
   };
   reset = () =>{
-    this.setState({value: 1})
+    this.setState({value: 0})
   }
+  clearBox = () => {
+    this.setState({ value: '' });
+  };
   render() {
     return (
       <div>
@@ -40,7 +43,7 @@ export default class FoodBox extends Component {
             <div className="media-right">
               <div className="field has-addons">
                 <div className="control">
-                  <input type="number" className='input' value={this.state.value} placeholder='Enter Here' onChange={this.inputHandle}/>
+                  <input type="number" className='input' value={this.state.value} placeholder='Enter Here' onChange={this.inputHandle} onClick={this.clearBox}/>
                 </div>
                 <div className="control">
                   <button className='button is-info' onClick={this.addButton}>
